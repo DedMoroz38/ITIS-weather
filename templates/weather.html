@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather for {{ city }}</title>
+</head>
+<body>
+    <h1>Weather for {{ city }}</h1>
+    <p>Temperature: {{ weather['fact']['temp'] }}°C</p>
+    <p>Humidity: {{ weather['fact']['humidity'] }}%</p>
+    <p>Condition: {{ weather['fact']['condition'] }}</p>
+    <p>Wind speed: {{ weather['fact']['wind_speed'] }} m/s</p>
+</body>
+</html>
