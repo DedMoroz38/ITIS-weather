@@ -4,7 +4,6 @@ import json
 
 app = Flask(__name__)
 
-# Замените на свой API-ключ для Yandex Weather
 API_KEY = "your_yandex_weather_api_key"
 
 
@@ -17,7 +16,6 @@ def index():
 def get_weather():
     city = request.form['city']
 
-    # Получаем координаты города с помощью геокодера DaData
     dadata_url = 'https://cleaner.dadata.ru/api/v1/clean/address'
     headers = {
         'Authorization': 'Bearer your_dadata_api_key',
@@ -31,7 +29,6 @@ def get_weather():
     dadata_response = requests.post(dadata_url, headers=headers, data=json.dumps(dadata_payload))
     coordinates = dadata_response.json()[0]['data']['geo_lat'], dadata_response.json()[0]['data']['geo_lon']
 
-    # Получаем данные о погоде с помощью Yandex Weather API
     weather_url = f'https://api.weather.yandex.ru/v2/informers?lat={coordinates[0]}&lon={coordinates[1]}'
     headers = {
         'X-Yandex-API-Key': API_KEY
